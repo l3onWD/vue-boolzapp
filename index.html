@@ -144,16 +144,6 @@
                         <p class="text-end text-gray-500">{{ message.date }}</p>
                     </li>
 
-                    <!-- <li class="message sent">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        <p class="text-end text-gray-500">10/01/2020 15:30:55</p>
-                    </li>
-
-                    <li class="message received">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        <p class="text-end text-gray-500">10/01/2020 15:30:55</p>
-                    </li> -->
-
                 </ul>
 
 
@@ -164,7 +154,7 @@
                     <button class="btn btn-gray-900 me-3"><i class="far fa-face-smile"></i></button>
 
                     <!-- Message Text -->
-                    <input class="form-control border-0 flex-grow-1 py-3" type="text" placeholder="Scrivi un messaggio">
+                    <input v-model.trim="newMessage" class="form-control border-0 flex-grow-1 py-3" type="text" placeholder="Scrivi un messaggio">
 
                     <!-- Record Message -->
                     <button class="btn btn-gray-900 ms-3"><i class="fas fa-microphone"></i></button>

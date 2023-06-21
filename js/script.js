@@ -27,6 +27,7 @@ const app = Vue.createApp({
             * GLOBAL
             */
             currentContactId: 1,
+            newMessage: '',
 
 
             /* 
