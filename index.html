@@ -86,7 +86,7 @@
                 <ul class="sidebar-bottom">
 
                     <!-- Contact -->
-                    <li v-for="contact in contacts" :key="contact.id" class="contact-card px-2 py-3">
+                    <li v-for="contact in contacts" :key="contact.id" @click="setCurrrentContact(contact.id)" class="contact-card px-2 py-3">
 
                         <div class="contact-card-left">
                             <img class="contact-img me-2" :src="getAvatarUrl(contact.avatar)" :alt="contact.name">

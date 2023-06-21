@@ -260,6 +260,14 @@ const app = Vue.createApp({
         // Get avatar image url
         getAvatarUrl(avatar) {
             return 'img/avatar' + avatar + '.jpg';
+        },
+
+
+        //*** SET CURRENT CONTACT ***//
+        // Get avatar image url
+        setCurrrentContact(contactId) {
+            
+            this.currentContactId = contactId;
         }
     }
 });
