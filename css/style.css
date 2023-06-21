@@ -16,10 +16,9 @@
     --ly-left: 300px;
 
     /* Misc */
-    --sidebar-top: 170px;
-    --conversation-header: 58px;
-    --conversation-footer: 58px;
-    --contact-card-height: 58px;
+    --sidebar-top: 174px;
+    --conversation-header: 64px;
+    --conversation-footer: 64px;
     --contact-img-height: 50px;
 }
 
@@ -149,9 +148,6 @@ ul {
 
 /*** CONTACT CARD ***/
 .contact-card {
-    height: var(--contact-card-height);
-    padding: 0.5rem 1rem;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
