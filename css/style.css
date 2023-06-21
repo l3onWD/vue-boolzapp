@@ -17,6 +17,8 @@
     --sidebar-top: 150px;
     --conversation-header: 58px;
     --conversation-footer: 58px;
+    --contact-card-height: 58px;
+    --contact-img-height: 50px;
 }
 
 
@@ -35,16 +37,11 @@ body {
     background-image: linear-gradient(180deg, var(--col-green) 80px, var(--col-lightgray) 80px);
 }
 
-main {
-    /*TODO remove*/
-    background-color: #8edafc;
-}
-
 ul {
-    /*TODO remove*/
     margin: 0;
     padding: 0;
-    list-style-type: none;
+
+    list-style: none;
 }
 
 
@@ -63,29 +60,67 @@ ul {
 
 .layout-right {
     flex-grow: 1;
-
-    /*TODO remove*/
-    background-color: blue;
 }
 
 
 /* -----------------------------------------
 ? COMPONENTS
 -------------------------------------------*/
+/*** BUTTONS ***/
+.btn {
+    padding: 0.5rem;
+}
+
+.btn.btn-gray {
+    color: var(--col-gray);
+}
+
+.btn.btn-gray:hover {
+    color: var(--col-darkgray);
+}
+
+
+/*** CONTACT CARD ***/
+.contact-card {
+    height: var(--contact-card-height);
+    padding: 0.5rem 1rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--col-lightgray);
+}
+
+.contact-card-left {
+    display: flex;
+    align-items: center;
+}
+
+.contact-card-right {
+    display: flex;
+}
+
+.contact-img {
+    height: var(--contact-img-height);
+    width: auto;
+
+    border-radius: 50%;
+}
+
+
 /*** SIDEBAR ***/
+.sidebar {
+    background-color: #fff;
+}
+
 .sidebar-top {
     height: var(--sidebar-top);
-
-    /*TODO remove*/
-    background-color: #6b7376;
 }
 
 .sidebar-bottom {
     height: calc(100% - var(--sidebar-top));
 
     overflow: auto;
-    /*TODO remove*/
-    background-color: goldenrod;
 }
 
 
