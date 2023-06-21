@@ -105,12 +105,24 @@ p {
     padding: 0.5rem;
 }
 
+.btn.btn-big {
+    font-size: 1.5rem;
+}
+
 .btn.btn-gray {
     color: var(--col-gray-500);
 }
 
 .btn.btn-gray:hover {
     color: var(--col-gray-900);
+}
+
+.btn.btn-gray-900 {
+    color: var(--col-gray-900);
+}
+
+.btn.btn-gray-900:hover {
+    color: var(--col-gray-500);
 }
 
 
@@ -202,9 +214,6 @@ p {
 
 .conversation-footer {
     height: var(--conversation-footer);
-
-    /*TODO remove*/
-    background-color: chartreuse;
 }
 
 .conversation-messages {
