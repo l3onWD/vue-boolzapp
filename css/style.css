@@ -9,6 +9,9 @@
     --col-lightgray: #eaeaea;
     --col-gray: #b1b1b1;
     --col-darkgray: #6b7376;
+
+    /* Layout */
+    --ly-left: 300px;
 }
 
 
@@ -28,8 +31,7 @@ body {
 }
 
 main {
-    height: 100%;
-
+    /*TODO remove*/
     background-color: #8edafc;
 }
 
@@ -37,7 +39,25 @@ main {
 /* -----------------------------------------
 * LAYOUT
 -------------------------------------------*/
+.layout-main {
+    height: 100%;
 
+    display: flex;
+}
+
+.layout-left {
+    flex: 0 0 var(--ly-left);
+
+    /*TODO remove*/
+    background-color: aquamarine;
+}
+
+.layout-right {
+    flex-grow: 1;
+
+    /*TODO remove*/
+    background-color: blue;
+}
 
 
 /* -----------------------------------------
