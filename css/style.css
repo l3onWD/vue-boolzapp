@@ -49,6 +49,10 @@ ul {
     list-style: none;
 }
 
+p {
+    margin-bottom: 0;
+}
+
 
 /* -----------------------------------------
 * LAYOUT
@@ -78,6 +82,10 @@ ul {
 
 .bg-cyan {
     background-color: var(--col-cyan);
+}
+
+.text-gray-500 {
+    color: var(--col-gray-500);
 }
 
 .text-gray-900 {
@@ -205,6 +213,28 @@ ul {
     background-image: url('../img/mine.jpg');
     
     overflow: auto;
+}
+
+
+/*** MESSAGE ***/
+.message {
+    margin: 1rem;
+    padding: 1rem;
+    width: 50%;
+
+    border-radius: 0.5rem;
+}
+
+.message.sent {
+    margin-left: auto;
+
+    background-color: var(--col-lightgreen);
+}
+
+.message.received {
+    margin-right: auto;
+
+    background-color: #fff;
 }
 
 
