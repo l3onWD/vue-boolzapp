@@ -7,9 +7,10 @@
     --col-green: #009688;
     --col-cyan: #8edafc;
     --col-blue: #5e5efd;
-    --col-lightgray: #eaeaea;
-    --col-gray: #b1b1b1;
-    --col-darkgray: #6b7376;
+    --col-gray-100: #eaeaea;
+    --col-gray-300: #d9dbd6;
+    --col-gray-500: #b1b1b1;
+    --col-gray-900: #6b7376;
 
     /* Layout */
     --ly-left: 300px;
@@ -39,7 +40,7 @@ html {
 body {
     height: 100vh;
 
-    background-image: linear-gradient(180deg, var(--col-green) 80px, var(--col-lightgray) 80px);
+    background-image: linear-gradient(180deg, var(--col-green) 80px, var(--col-gray-300) 80px);
 }
 
 ul {
@@ -72,8 +73,8 @@ ul {
 * UTILS
 -------------------------------------------*/
 /*** COLORS ***/
-.bg-lightgray {
-    background-color: var(--col-lightgray);
+.bg-gray-100 {
+    background-color: var(--col-gray-100);
 }
 
 .bg-cyan {
@@ -90,11 +91,38 @@ ul {
 }
 
 .btn.btn-gray {
-    color: var(--col-gray);
+    color: var(--col-gray-500);
 }
 
 .btn.btn-gray:hover {
-    color: var(--col-darkgray);
+    color: var(--col-gray-900);
+}
+
+
+/*** SEARCH INPUTS ***/
+.form-search {
+    position: relative;
+}
+
+.form-search input {
+    padding-left: 3rem;
+
+    border: none;
+}
+
+.form-search::before {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font: var(--fa-font-solid);
+
+    color: var(--col-gray-500);
+    content: "\f002";
 }
 
 
