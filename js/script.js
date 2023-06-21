@@ -298,10 +298,11 @@ const app = Vue.createApp({
         * MESSAGE
         */
         //*** ADD MESSAGE ***//
-        addMessage() {
+        // Add a message to the current contact message list
+        addMessage(msg, status) {
 
             // Validation
-            if(!this.newMessage.length) return;
+            if(!msg.length) return;
 
             // Get id
             const msgId = this.lastMessageId + 1;
@@ -320,7 +321,31 @@ const app = Vue.createApp({
             const msgDate = dateNow.toLocaleString([], dateFormatOptions).replace(',', '');
 
             // Add message
-            this.currentMessages.push({ id:msgId, date: msgDate, message: this.newMessage, status: 'sent' });
+            this.currentMessages.push({ id:msgId, date: msgDate, message: msg, status: status });
+
+        },
+
+        //*** SENT MESSAGE ***//
+        // Sent user message from the message input
+        sentMessage() {
+
+            // add message
+            this.addMessage(this.newMessage, 'sent');
+
+            // Reset input
+            this.newMessage = '';
+            this.$refs.addMessageInput.focus();
+
+            // Set replay timer
+            setTimeout(this.sentCPUMessage, 1000);
+        },
+
+        //*** SENT CPU MESSAGE ***//
+        // Sent CPU message with predefined text
+        sentCPUMessage() {
+
+            // add message
+            this.addMessage('Ok', 'received');
 
             // Reset input
             this.newMessage = '';
