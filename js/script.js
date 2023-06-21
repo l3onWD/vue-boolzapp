@@ -28,6 +28,7 @@ const app = Vue.createApp({
             */
             currentContactId: 1,
             newMessage: '',
+            replyTimer: null,
 
 
             /* 
@@ -336,12 +337,13 @@ const app = Vue.createApp({
             this.newMessage = '';
             this.$refs.addMessageInput.focus();
 
-            // Set replay timer
-            setTimeout(this.sentCPUMessage, 1000);
+            // Reset reply timer and set new one (cpu wait last message before reply)
+            clearTimeout(this.replyTimer);
+            this.replyTimer = setTimeout(this.sentCPUMessage, 1000);
         },
 
         //*** SENT CPU MESSAGE ***//
-        // Sent CPU message with predefined text
+        // Sent CPU reply message with predefined text
         sentCPUMessage() {
 
             // add message
