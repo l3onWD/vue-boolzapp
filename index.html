@@ -40,9 +40,9 @@
                         
                         <div class="contact-card-left">
 
-                            <img class="contact-img me-2" src="img/avatar_2.jpg" alt="Avatar Vincenzo">
+                            <img class="contact-img me-2" :src="getAvatarUrl(user.avatar)" :alt="user.name">
 
-                            <strong>Vincenzo</strong>
+                            <strong>{{ user.name }}</strong>
   
                         </div>
 
@@ -86,45 +86,12 @@
                 <ul class="sidebar-bottom">
 
                     <!-- Contact -->
-                    <li class="contact-card px-2 py-3">
+                    <li v-for="contact in contacts" :key="contact.id" class="contact-card px-2 py-3">
 
                         <div class="contact-card-left">
-                            <img class="contact-img me-2" src="img/avatar_1.jpg" alt="Avatar Michele">
+                            <img class="contact-img me-2" :src="getAvatarUrl(contact.avatar)" :alt="contact.name">
     
-                            <p>Michele</p>
-                        </div>
-
-                    </li>
-
-                    <!-- Contact -->
-                    <li class="contact-card px-2 py-3">
-
-                        <div class="contact-card-left">
-                            <img class="contact-img me-2" src="img/avatar_1.jpg" alt="Avatar Michele">
-    
-                            <p>Michele</p>
-                        </div>
-
-                    </li>
-
-                    <!-- Contact -->
-                    <li class="contact-card px-2 py-3">
-
-                        <div class="contact-card-left">
-                            <img class="contact-img me-2" src="img/avatar_1.jpg" alt="Avatar Michele">
-    
-                            <p>Michele</p>
-                        </div>
-
-                    </li>
-
-                    <!-- Contact -->
-                    <li class="contact-card px-2 py-3">
-
-                        <div class="contact-card-left">
-                            <img class="contact-img me-2" src="img/avatar_1.jpg" alt="Avatar Michele">
-    
-                            <p>Michele</p>
+                            <p>{{ contact.name }}</p>
                         </div>
 
                     </li>
