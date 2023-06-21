@@ -19,6 +19,7 @@ const app = Vue.createApp({
             newMessage: '',
             replyTimer: null,
             replyDelay: 1000,
+            searchedWord: '',
 
 
             /* 
@@ -238,6 +239,12 @@ const app = Vue.createApp({
         /* 
         * CONTACT
         */
+        //*** FILTERED CONTACTS ***//
+        // Get a reference of the current contact from current contact id
+        filteredContacts() {
+            return this.contacts.filter(({name}) => name.toLowerCase().includes(this.searchedWord.toLowerCase()));
+        },
+
         //*** CURRENT CONTACT ***//
         // Get a reference of the current contact from current contact id
         currentContact() {
