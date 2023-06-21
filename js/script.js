@@ -26,8 +26,9 @@ const app = Vue.createApp({
             /* 
             * GLOBAL
             */
-           
-            
+            currentContactId: 1,
+
+
             /* 
             * USER
             */
@@ -232,7 +233,7 @@ const app = Vue.createApp({
                     ],
                 }
             ]
-            
+
         };
     },
 
@@ -242,6 +243,10 @@ const app = Vue.createApp({
     -------------------------------------------*/
     computed: {
 
+        //*** CURRENT CONTACT ***//
+        currentContact() {
+            return this.contacts.find(({id}) => id === this.currentContactId);
+        }
     },
 
 
