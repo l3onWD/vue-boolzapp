@@ -37,7 +37,7 @@
             <nav class="layout-left sidebar">
 
                 <!-- Sidebar Top -->
-                <div class="sidebar-top">
+                <div class="sidebar-top bg-lightgray">
 
                     <!-- Profile -->
                     <div class="contact-card">
@@ -65,12 +65,14 @@
                     </div>
 
                     <!-- Notify Button -->
-                    <div class="p-3 border bg-primary">
+                    <div class="p-2 bg-cyan">
                         Ricevi Notifiche
                     </div>
                     
                     <!-- Contacts search -->
-                    <input class="form-control" type="text" placeholder="Cerca Contatti">
+                    <div class="form-search p-2">
+                        <input class="form-control" type="text" placeholder="Cerca o inizia una nuova chat">
+                    </div>
                     
 
                 </div>
@@ -79,8 +81,14 @@
                 <ul class="sidebar-bottom">
 
                     <!-- Contact -->
-                    <li class="p-3 border">
-                        Contact Card
+                    <li class="contact-card">
+
+                        <div class="contact-card-left">
+                            <img class="contact-img me-2" src="img/avatar_1.jpg" alt="Avatar Michele">
+    
+                            <p class="mb-0">Michele</p>
+                        </div>
+
                     </li>
 
                     <!-- Contact -->
@@ -121,8 +129,33 @@
             <div class="layout-right conversation">
 
                 <!-- Conversation header -->
-                <div class="conversation-header p-3 border">
-                    Contact Card
+                <div class="conversation-header">
+                    <div class="contact-card bg-lightgray">
+                        
+                        <div class="contact-card-left">
+
+                            <img class="contact-img me-2" src="img/avatar_1.jpg" alt="Avatar Michele">
+
+                            <div>
+                                <p class="mb-0">Michele</p>
+                                <p class="mb-0">Ultimo accesso oggi alle</p>
+                            </div>
+  
+                        </div>
+
+                        <ul class="contact-card-right">
+                            <li>
+                                <button class="btn btn-gray"><i class="fas fa-magnifying-glass"></i></button>
+                            </li>
+                            <li>
+                                <button class="btn btn-gray"><i class="fas fa-paperclip"></i></button>
+                            </li>
+                            <li>
+                                <button class="btn btn-gray"><i class="fas fa-ellipsis-vertical"></i></button>
+                            </li>
+                        </ul>
+
+                    </div>
                 </div>
 
                 <!-- Conversation messages -->

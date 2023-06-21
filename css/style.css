@@ -6,6 +6,7 @@
     --col-lightgreen: #d5f9ba;
     --col-green: #009688;
     --col-cyan: #8edafc;
+    --col-blue: #5e5efd;
     --col-lightgray: #eaeaea;
     --col-gray: #b1b1b1;
     --col-darkgray: #6b7376;
@@ -31,6 +32,10 @@
 /* -----------------------------------------
 * GENERICS
 -------------------------------------------*/
+html {
+    font-size: 14px;
+}
+
 body {
     height: 100vh;
 
@@ -64,6 +69,19 @@ ul {
 
 
 /* -----------------------------------------
+* UTILS
+-------------------------------------------*/
+/*** COLORS ***/
+.bg-lightgray {
+    background-color: var(--col-lightgray);
+}
+
+.bg-cyan {
+    background-color: var(--col-cyan);
+}
+
+
+/* -----------------------------------------
 ? COMPONENTS
 -------------------------------------------*/
 /*** BUTTONS ***/
@@ -88,7 +106,6 @@ ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--col-lightgray);
 }
 
 .contact-card-left {
@@ -111,6 +128,7 @@ ul {
 /*** SIDEBAR ***/
 .sidebar {
     background-color: #fff;
+    border-right: 1px solid var(--col-blue);
 }
 
 .sidebar-top {
@@ -127,9 +145,6 @@ ul {
 /*** CONVERSATION ***/
 .conversation-header {
     height: var(--conversation-header);
-
-    /*TODO remove*/
-    background-color: brown;
 }
 
 .conversation-footer {
@@ -142,10 +157,9 @@ ul {
 .conversation-messages {
     height: calc(100% - var(--conversation-header) - var(--conversation-footer));
 
+    background-image: url('../img/mine.jpg');
+    
     overflow: auto;
-
-    /*TODO remove*/
-    background-color: mediumslateblue;
 }
 
 
