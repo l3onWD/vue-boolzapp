@@ -35,7 +35,7 @@
                 <!-- Sidebar Top -->
                 <div class="sidebar-top bg-gray-100">
 
-                    <!-- Profile -->
+                    <!--* Profile *-->
                     <div class="contact-card p-2">
                         
                         <div class="contact-card-left">
@@ -83,10 +83,10 @@
                 </div>
 
                 <!-- Sidebar Bottom -->
-                <ul class="sidebar-bottom">
+                <ul class="sidebar-bottom contacts-list">
 
-                    <!-- Contact -->
-                    <li v-for="contact in contacts" :key="contact.id" @click="setCurrrentContact(contact.id)" class="contact-card px-2 py-3">
+                    <!--* Contacts *-->
+                    <li v-for="contact in contacts" :key="contact.id" @click="setCurrrentContact(contact.id)"  :class="{active: contact.id === currentContactId}" class="contact-card px-2 py-3">
 
                         <div class="contact-card-left">
                             <img class="contact-img me-2" :src="getAvatarUrl(contact.avatar)" :alt="contact.name">
@@ -139,6 +139,7 @@
                 <!-- Conversation messages -->
                 <ul class="conversation-messages py-4 px-5">
 
+                    <!--* Messages *-->
                     <li v-for="message in currentMessages" :key="message.id" :class="message.status" class="message">
                         <p>{{ message.message }}</p>
                         <p class="text-end text-gray-500">{{ message.date }}</p>
@@ -153,7 +154,7 @@
                     <!-- Add Icon -->
                     <button class="btn btn-gray-900 me-3"><i class="far fa-face-smile"></i></button>
 
-                    <!-- Message Text -->
+                    <!--* Message Text *-->
                     <input v-model.trim="newMessage" @keyup.enter="addMessage" class="form-control border-0 flex-grow-1 py-3" type="text" placeholder="Scrivi un messaggio">
 
                     <!-- Record Message -->

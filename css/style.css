@@ -196,7 +196,14 @@ a:hover {
     overflow: auto;
 }
 
-.sidebar-bottom li:hover {
+
+/*** CONTACTS LIST ***/
+.contacts-list li {
+    cursor: pointer;
+}
+
+.contacts-list li:hover,
+.contacts-list li.active {
     background-color: var(--col-gray-200);
 
     cursor: pointer;
