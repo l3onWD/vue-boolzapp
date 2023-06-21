@@ -304,14 +304,26 @@ const app = Vue.createApp({
             if(!this.newMessage.length) return;
 
             // Get id
+            const msgId = this.lastMessageId + 1;
 
-            this.currentMessages.push({ id:2, date: new Date().now(),  });
-            // {
-            //     id: 2,
-            //     date: '10/01/2020 15:50:00',
-            //     message: 'Grazie per avermelo ricordato, le scrivo subito!',
-            //     status: 'received'
-            // }
+            // Create date string
+            const dateNow = new Date();
+            const dateFormatOptions = {
+                day: '2-digit',
+                month: '2-digit',
+                year: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false
+            }
+            const msgDate = dateNow.toLocaleString([], dateFormatOptions).replace(',', '');
+
+            // Add message
+            this.currentMessages.push({ id:msgId, date: msgDate, message: this.newMessage, status: 'sent' });
+
+            // Reset input
+            this.newMessage = '';
         }
     }
 });
