@@ -257,6 +257,12 @@ const app = Vue.createApp({
             return this.currentContact.messages;
         },
 
+        //*** LAST ACCESS ***//
+        // Get last access based on last received message date
+        lastAccess() {
+            return this.currentMessages.find(({id}) => id === this.lastReceivedMessageId).date;
+        },
+
 
         /* 
         * MESSAGE
@@ -265,6 +271,13 @@ const app = Vue.createApp({
         // Get last message id of the current contact
         lastMessageId() {
             return this.currentMessages.reduce((result, {id}) => id > result ? id: result, 0);
+        },
+
+
+        //*** LAST RECEIVED MESSAGE ID ***//
+        // Get last message id of the current contact
+        lastReceivedMessageId() {
+            return this.currentMessages.reduce((result, {id, status}) => status === 'received' && id > result ? id: result, 0);
         }
 
     },

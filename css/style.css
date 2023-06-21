@@ -74,6 +74,12 @@ a:hover {
 /* -----------------------------------------
 * UTILS
 -------------------------------------------*/
+/*** TEXT ***/
+.text-small {
+    font-size: 0.8rem;
+}
+
+
 /*** COLORS ***/
 .bg-gray-100 {
     background-color: var(--col-gray-100);
