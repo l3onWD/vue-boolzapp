@@ -100,8 +100,10 @@
 
             </nav>
 
+
             <!-- Conversation -->
             <div class="layout-right conversation">
+
 
                 <!-- Conversation header -->
                 <div class="conversation-header">
@@ -133,35 +135,27 @@
                     </div>
                 </div>
 
+
                 <!-- Conversation messages -->
                 <ul class="conversation-messages py-4 px-5">
 
-                    <li class="message sent">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        <p class="text-end text-gray-500">10/01/2020 15:30:55</p>
+                    <li v-for="message in currentMessages" :key="message.id" :class="message.status" class="message">
+                        <p>{{ message.message }}</p>
+                        <p class="text-end text-gray-500">{{ message.date }}</p>
                     </li>
 
-                    <li class="message sent">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        <p class="text-end text-gray-500">10/01/2020 15:30:55</p>
-                    </li>
-
-                    <li class="message received">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        <p class="text-end text-gray-500">10/01/2020 15:30:55</p>
-                    </li>
-
-                    <li class="message sent">
+                    <!-- <li class="message sent">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                         <p class="text-end text-gray-500">10/01/2020 15:30:55</p>
                     </li>
 
                     <li class="message received">
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est, provident soluta placeat assumenda totam maiores doloribus voluptatibus recusandae? Dicta, quae architecto esse sapiente necessitatibus doloribus ipsa ratione recusandae beatae ex!</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                         <p class="text-end text-gray-500">10/01/2020 15:30:55</p>
-                    </li>
+                    </li> -->
 
                 </ul>
+
 
                 <!-- Conversation footer -->
                 <div class="conversation-footer d-flex align-items-center bg-gray-100 p-3">

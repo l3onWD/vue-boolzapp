@@ -247,6 +247,13 @@ const app = Vue.createApp({
         // Get a reference of the current contact from current contact id
         currentContact() {
             return this.contacts.find(({id}) => id === this.currentContactId);
+        },
+
+
+        //*** CURRENT MESSAGES ***//
+        // Get a current message from current contact
+        currentMessages() {
+            return this.currentContact.messages;
         }
     },
 
