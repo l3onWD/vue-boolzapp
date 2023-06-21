@@ -16,7 +16,7 @@
     --ly-left: 300px;
 
     /* Misc */
-    --sidebar-top: 150px;
+    --sidebar-top: 170px;
     --conversation-header: 58px;
     --conversation-footer: 58px;
     --contact-card-height: 58px;
@@ -81,6 +81,14 @@ ul {
     background-color: var(--col-cyan);
 }
 
+.text-gray-900 {
+    color: var(--col-gray-900);
+}
+
+.text-cyan {
+    color: var(--col-cyan);
+}
+
 
 /* -----------------------------------------
 ? COMPONENTS
@@ -96,6 +104,19 @@ ul {
 
 .btn.btn-gray:hover {
     color: var(--col-gray-900);
+}
+
+
+/*** ROUNDED ICONS ***/
+.rounded-icon {
+    height: 50px;
+    width: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.5rem;
 }
 
 
