@@ -244,18 +244,31 @@ const app = Vue.createApp({
     -------------------------------------------*/
     computed: {
 
+        /* 
+        * CONTACT
+        */
         //*** CURRENT CONTACT ***//
         // Get a reference of the current contact from current contact id
         currentContact() {
             return this.contacts.find(({id}) => id === this.currentContactId);
         },
 
-
         //*** CURRENT MESSAGES ***//
         // Get a current message from current contact
         currentMessages() {
             return this.currentContact.messages;
+        },
+
+
+        /* 
+        * MESSAGE
+        */
+        //*** LAST MESSAGE ID ***//
+        // Get last message id of the current contact
+        lastMessageId() {
+            return this.currentMessages.reduce((result, {id}) => id > result ? id: result, 0);
         }
+
     },
 
 
@@ -264,18 +277,41 @@ const app = Vue.createApp({
     -------------------------------------------*/
     methods: {
 
+        /* 
+        * CONTACT
+        */
         //*** GET AVATAR URL ***//
         // Get avatar image url
         getAvatarUrl(avatar) {
             return 'img/avatar' + avatar + '.jpg';
         },
 
-
         //*** SET CURRENT CONTACT ***//
         // Get avatar image url
         setCurrrentContact(contactId) {
             
             this.currentContactId = contactId;
+        },
+
+
+        /* 
+        * MESSAGE
+        */
+        //*** ADD MESSAGE ***//
+        addMessage() {
+
+            // Validation
+            if(!this.newMessage.length) return;
+
+            // Get id
+
+            this.currentMessages.push({ id:2, date: new Date().now(),  });
+            // {
+            //     id: 2,
+            //     date: '10/01/2020 15:50:00',
+            //     message: 'Grazie per avermelo ricordato, le scrivo subito!',
+            //     status: 'received'
+            // }
         }
     }
 });

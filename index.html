@@ -154,7 +154,7 @@
                     <button class="btn btn-gray-900 me-3"><i class="far fa-face-smile"></i></button>
 
                     <!-- Message Text -->
-                    <input v-model.trim="newMessage" class="form-control border-0 flex-grow-1 py-3" type="text" placeholder="Scrivi un messaggio">
+                    <input v-model.trim="newMessage" @keyup.enter="addMessage" class="form-control border-0 flex-grow-1 py-3" type="text" placeholder="Scrivi un messaggio">
 
                     <!-- Record Message -->
                     <button class="btn btn-gray-900 ms-3"><i class="fas fa-microphone"></i></button>
