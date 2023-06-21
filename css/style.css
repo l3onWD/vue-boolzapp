@@ -57,9 +57,6 @@ ul {
 
 .layout-left {
     flex: 0 0 var(--ly-left);
-
-    /*TODO remove*/
-    background-color: aquamarine;
 }
 
 .layout-right {
@@ -89,6 +86,30 @@ ul {
     background-color: goldenrod;
 }
 
+
+/*** CONVERSATION ***/
+.conversation-header {
+    height: 58px;
+
+    /*TODO remove*/
+    background-color: brown;
+}
+
+.conversation-controls {
+    height: 58px;
+
+    /*TODO remove*/
+    background-color: chartreuse;
+}
+
+.conversation-messages {
+    height: calc(100% - 58px - 58px);
+
+    overflow: auto;
+
+    /*TODO remove*/
+    background-color: mediumslateblue;
+}
 
 
 /* -----------------------------------------
