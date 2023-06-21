@@ -1,25 +1,42 @@
 /* -----------------------------------------
 * VARIABLES
 -------------------------------------------*/
-
+:root {
+    /* Palette */
+    --col-lightgreen: #d5f9ba;
+    --col-green: #009688;
+    --col-cyan: #8edafc;
+    --col-lightgray: #eaeaea;
+    --col-gray: #b1b1b1;
+    --col-darkgray: #6b7376;
+}
 
 
 /* -----------------------------------------
 * RESETS
 -------------------------------------------*/
-/*
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-*/
+
 
 
 /* -----------------------------------------
 * GENERICS
 -------------------------------------------*/
+body {
+    height: 100vh;
 
+    background-image: linear-gradient(180deg, var(--col-green) 80px, var(--col-lightgray) 80px);
+}
+
+main {
+    height: 100%;
+
+    background-color: #8edafc;
+}
+
+
+/* -----------------------------------------
+* LAYOUT
+-------------------------------------------*/
 
 
 
