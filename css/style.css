@@ -141,12 +141,6 @@ p {
     position: relative;
 }
 
-.form-search input {
-    padding-left: 3rem;
-
-    border: none;
-}
-
 .form-search::before {
     position: absolute;
     top: 50%;
