@@ -244,6 +244,7 @@ const app = Vue.createApp({
     computed: {
 
         //*** CURRENT CONTACT ***//
+        // Get a reference of the current contact from current contact id
         currentContact() {
             return this.contacts.find(({id}) => id === this.currentContactId);
         }

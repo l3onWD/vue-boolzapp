@@ -109,10 +109,10 @@
                         
                         <div class="contact-card-left">
 
-                            <img class="contact-img me-2" src="img/avatar_1.jpg" alt="Avatar Michele">
+                            <img class="contact-img me-2" :src="getAvatarUrl(currentContact.avatar)" :alt="currentContact.name">
 
                             <div>
-                                <p>Michele</p>
+                                <p>{{currentContact.name}}</p>
                                 <p class="text-gray-900">Ultimo accesso oggi alle</p>
                             </div>
   
