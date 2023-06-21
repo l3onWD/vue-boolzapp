@@ -7,7 +7,8 @@
     --col-green: #009688;
     --col-cyan: #8edafc;
     --col-blue: #5e5efd;
-    --col-gray-100: #eaeaea;
+    --col-gray-100: #f3eeea;
+    --col-gray-200: #eaeaea;
     --col-gray-300: #d9dbd6;
     --col-gray-500: #b1b1b1;
     --col-gray-900: #6b7376;
@@ -21,12 +22,6 @@
     --conversation-footer: 64px;
     --contact-img-height: 50px;
 }
-
-
-/* -----------------------------------------
-* RESETS
--------------------------------------------*/
-
 
 
 /* -----------------------------------------
@@ -51,6 +46,10 @@ ul {
 
 p {
     margin-bottom: 0;
+}
+
+a:hover {
+    color: var(--col-green);
 }
 
 
@@ -195,6 +194,12 @@ p {
     height: calc(100% - var(--sidebar-top));
 
     overflow: auto;
+}
+
+.sidebar-bottom li:hover {
+    background-color: var(--col-gray-200);
+
+    cursor: pointer;
 }
 
 
