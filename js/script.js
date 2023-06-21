@@ -324,6 +324,7 @@ const app = Vue.createApp({
 
             // Reset input
             this.newMessage = '';
+            this.$refs.addMessageInput.focus();
         }
     }
 });
