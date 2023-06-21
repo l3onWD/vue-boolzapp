@@ -15,6 +15,8 @@
 
     /* Misc */
     --sidebar-top: 150px;
+    --conversation-header: 58px;
+    --conversation-footer: 58px;
 }
 
 
@@ -89,21 +91,21 @@ ul {
 
 /*** CONVERSATION ***/
 .conversation-header {
-    height: 58px;
+    height: var(--conversation-header);
 
     /*TODO remove*/
     background-color: brown;
 }
 
-.conversation-controls {
-    height: 58px;
+.conversation-footer {
+    height: var(--conversation-footer);
 
     /*TODO remove*/
     background-color: chartreuse;
 }
 
 .conversation-messages {
-    height: calc(100% - 58px - 58px);
+    height: calc(100% - var(--conversation-header) - var(--conversation-footer));
 
     overflow: auto;
 
