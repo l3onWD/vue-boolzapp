@@ -388,7 +388,7 @@ const app = Vue.createApp({
 
         //*** LAST MESSAGE ***//
         // Get last message of a contact
-        getLastMessage(contacId) {
+        getLastMessageDate(contacId) {
 
             const contactMessages = this.getObjectById(this.contacts, contacId).messages;
             
