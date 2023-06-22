@@ -58,12 +58,18 @@ a:hover {
 -------------------------------------------*/
 .layout-main {
     height: 100%;
+    position: relative;
 
     display: flex;
+
+    overflow: hidden;
 }
 
 .layout-left {
-    flex: 0 0 var(--ly-left);
+    flex: 0 0 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
 }
 
 .layout-right {
@@ -271,3 +277,12 @@ a:hover {
 /* -----------------------------------------
 ? RESPONSIVE
 -------------------------------------------*/
+/*** MEDIA MD ***/
+@media screen and (min-width: 768px) {
+
+    /*** LAYOUT ***/
+    .layout-left {
+        flex: 0 0 var(--ly-left);
+        position: static;
+    }
+}
