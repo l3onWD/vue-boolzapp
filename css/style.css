@@ -256,10 +256,12 @@ a:hover {
 .message {
     padding: 1rem;
     max-width: 90%;
+    position: relative;
 
     border-radius: 0.5rem;
 
     box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 
 .message.sent {
@@ -273,6 +275,22 @@ a:hover {
 
     background-color: #fff;
 }
+
+/* hover icon */
+.message:hover > p:first-child::after {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font: var(--fa-font-solid);
+
+    color: var(--col-gray-500);
+    content: "\f107";
+}
+
 
 
 /* -----------------------------------------
