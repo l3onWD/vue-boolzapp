@@ -256,7 +256,7 @@ const app = Vue.createApp({
         //*** CURRENT CONTACT ***//
         // Get a reference of the current contact from current contact id
         currentContact() {
-            return this.getObjectById(this.contacts, this.currentContactId);
+            return this.contacts.find(({id}) => id === this.currentContactId);
         },
 
         //*** CURRENT MESSAGES ***//
@@ -268,7 +268,7 @@ const app = Vue.createApp({
         //*** LAST ACCESS ***//
         // Get last access based on last received message date
         lastAccess() {
-            return this.getObjectById(this.currentMessages, this.lastReceivedMessageId).date;
+            return this.currentMessages.find(({id}) => id === this.lastReceivedMessageId).date;
         },
 
 
