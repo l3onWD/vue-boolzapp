@@ -13,6 +13,14 @@ const app = Vue.createApp({
         return {
 
             /* 
+            * RENDER
+            */
+            layoutLeftElem: {
+                show: false
+            },
+
+
+            /* 
             * GLOBAL
             */
             currentContactId: 1,

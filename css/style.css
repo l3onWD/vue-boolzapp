@@ -66,10 +66,16 @@ a:hover {
 }
 
 .layout-left {
-    flex: 0 0 100%;
     position: absolute;
     top: 100%;
     left: 0;
+    width: 100%;
+
+    transition: top 0.2s;
+}
+
+.layout-left.show {
+    top: 0;
 }
 
 .layout-right {
