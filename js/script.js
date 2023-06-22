@@ -256,7 +256,7 @@ const app = Vue.createApp({
         //*** CURRENT CONTACT ***//
         // Get a reference of the current contact from current contact id
         currentContact() {
-            return this.contacts.find(({id}) => id === this.currentContactId);
+            return this.getObjectById(this.contacts, this.currentContactId);
         },
 
         //*** CURRENT MESSAGES ***//
@@ -268,7 +268,7 @@ const app = Vue.createApp({
         //*** LAST ACCESS ***//
         // Get last access based on last received message date
         lastAccess() {
-            return this.currentMessages.find(({id}) => id === this.lastReceivedMessageId).date;
+            return this.getObjectById(this.currentMessages, this.lastReceivedMessageId).date;
         },
 
 
@@ -295,6 +295,16 @@ const app = Vue.createApp({
     * METHODS
     -------------------------------------------*/
     methods: {
+
+        /* 
+        * UTILS
+        */
+        //*** GET OBJECT BY ID ***//
+        // Get an object from an array of objects based on id argument
+        getObjectById(arr, itemId) {
+            return arr.find(({id}) => id === itemId);
+        },
+
 
         /* 
         * CONTACT
@@ -374,6 +384,17 @@ const app = Vue.createApp({
             // Reset input
             this.newMessage = '';
             this.$refs.addMessageInput.focus();
+        },
+
+        //*** LAST MESSAGE ***//
+        // Get last message of a contact
+        getLastMessage(contacId) {
+
+            const contactMessages = this.getObjectById(this.contacts, contacId).messages;
+            
+            const lastMessageId = contactMessages.reduce((result, {id}) => id > result ? id: result, 0);
+
+            return this.getObjectById(contactMessages, lastMessageId).date;
         }
     }
 });
