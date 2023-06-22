@@ -309,7 +309,11 @@ const app = Vue.createApp({
         // Get avatar image url
         setCurrrentContact(contactId) {
             
+            // Change current contact ID
             this.currentContactId = contactId;
+
+            // Hide sidebar
+            this.layoutLeftElem.show = false;
         },
 
 
