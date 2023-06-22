@@ -137,10 +137,10 @@
 
 
                 <!-- Chat messages -->
-                <ul class="chat-messages">
+                <ul class="chat-messages px-5 py-3">
 
                     <!--* Messages *-->
-                    <li v-for="message in currentMessages" :key="message.id" :class="message.status" class="message">
+                    <li v-for="message in currentMessages" :key="message.id" :class="message.status" class="message my-2">
                         <p>{{ message.message }}</p>
                         <p class="text-end text-gray-500">{{ message.date }}</p>
                     </li>
