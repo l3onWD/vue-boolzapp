@@ -181,12 +181,7 @@ a:hover {
     align-items: center;
 }
 
-.contact-card-left {
-    display: flex;
-    align-items: center;
-}
-
-.contact-card-right {
+.contact-card > * {
     display: flex;
 }
 
