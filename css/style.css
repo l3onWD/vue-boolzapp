@@ -18,8 +18,8 @@
 
     /* Misc */
     --sidebar-top: 174px;
-    --conversation-header: 64px;
-    --conversation-footer: 64px;
+    --chat-header: 64px;
+    --chat-footer: 64px;
     --contact-img-height: 50px;
 }
 
@@ -216,17 +216,17 @@ a:hover {
 }
 
 
-/*** CONVERSATION ***/
-.conversation-header {
-    height: var(--conversation-header);
+/*** CHAT ***/
+.chat-header {
+    height: var(--chat-header);
 }
 
-.conversation-footer {
-    height: var(--conversation-footer);
+.chat-footer {
+    height: var(--chat-footer);
 }
 
-.conversation-messages {
-    height: calc(100% - var(--conversation-header) - var(--conversation-footer));
+.chat-messages {
+    height: calc(100% - var(--chat-header) - var(--chat-footer));
 
     background-image: url('../img/mine.jpg');
     
