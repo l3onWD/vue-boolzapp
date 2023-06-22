@@ -14,7 +14,7 @@
     --col-gray-900: #6b7376;
 
     /* Layout */
-    --ly-left: 300px;
+    --ly-left: 350px;
 
     /* Misc */
     --sidebar-top: 174px;
@@ -260,7 +260,7 @@ a:hover {
 /*** MESSAGE ***/
 .message {
     padding: 1rem;
-    max-width: 60%;
+    max-width: 90%;
 
     border-radius: 0.5rem;
 
