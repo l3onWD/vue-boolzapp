@@ -154,6 +154,40 @@ a:hover {
 }
 
 
+/*** DROPMENU ***/
+.dropmenu {
+    position: relative;
+}
+
+.dropmenu-content {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    padding: 1rem 0;
+
+    display: none;
+    background-color: #fff;
+    border-radius: 0.5rem;
+
+    box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropmenu-content li {
+    padding: 0.5rem 1.5rem;
+
+    cursor: pointer;
+}
+
+.dropmenu-content li:hover {
+    color: var(--col-green);
+}
+
+.dropmenu-toggle:focus ~ .dropmenu-content {
+    display: block;
+}
+
+
 /*** SEARCH INPUTS ***/
 .form-search {
     position: relative;
