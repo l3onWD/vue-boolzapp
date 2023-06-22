@@ -186,6 +186,12 @@ a:hover {
 }
 
 
+/*** ROOT ***/
+#root {
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+
 /*** SIDEBAR ***/
 .sidebar {
     background-color: #fff;
@@ -223,6 +229,9 @@ a:hover {
 
 .chat-footer {
     height: var(--chat-footer);
+
+    display: flex;
+    align-items: center;
 }
 
 .chat-messages {
