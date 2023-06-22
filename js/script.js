@@ -334,9 +334,6 @@ const app = Vue.createApp({
         // Add a message to the current contact message list
         addMessage(msg, status) {
 
-            // Validation
-            if(!msg.length) return;
-
             // Get id
             const msgId = this.lastMessageId + 1;
 
@@ -361,6 +358,9 @@ const app = Vue.createApp({
         //*** SENT MESSAGE ***//
         // Sent user message from the message input
         sentMessage() {
+
+            // Validation
+            if(!this.newMessage.length) return;
 
             // add message
             this.addMessage(this.newMessage, 'sent');
