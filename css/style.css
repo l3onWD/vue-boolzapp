@@ -268,7 +268,7 @@ a:hover {
 
     border-radius: 0.5rem;
 
-    box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.2);
     cursor: pointer;
 }
 
@@ -284,8 +284,32 @@ a:hover {
     background-color: #fff;
 }
 
+/* message tick */
+.message::before {
+    position: absolute;
+    bottom: 0;
+
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 8px solid transparent;
+
+    content: '';
+}
+
+.message.sent::before {
+    right: -12px;
+
+    border-bottom-color: var(--col-lightgreen);
+}
+
+.message.received::before {
+    left: -12px;
+
+    border-bottom-color: #fff;
+}
+
 /* hover icon */
-.message:hover > p:first-child::after {
+.message:hover::after {
     position: absolute;
     top: 6px;
     right: 6px;
