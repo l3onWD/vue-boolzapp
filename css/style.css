@@ -227,7 +227,10 @@ a:hover {
 
 .chat-messages {
     height: calc(100% - var(--chat-header) - var(--chat-footer));
+    padding: 2rem 5rem;
 
+    display: flex;
+    flex-direction: column;
     background-image: url('../img/mine.jpg');
     
     overflow: auto;
@@ -238,7 +241,7 @@ a:hover {
 .message {
     margin: 1rem;
     padding: 1rem;
-    width: 50%;
+    max-width: 60%;
 
     border-radius: 0.5rem;
 
