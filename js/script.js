@@ -386,8 +386,19 @@ const app = Vue.createApp({
             this.$refs.addMessageInput.focus();
         },
 
-        //*** LAST MESSAGE ***//
-        // Get last message of a contact
+        //*** LAST MESSAGE TEXT ***//
+        // Get last message text from contact messages
+        getLastMessageText(contacId) {
+
+            const contactMessages = this.getObjectById(this.contacts, contacId).messages;
+            
+            const lastMessageId = contactMessages.reduce((result, {id}) => id > result ? id: result, 0);
+
+            return this.getObjectById(contactMessages, lastMessageId).message;
+        },
+
+        //*** LAST MESSAGE DATE ***//
+        // Get last message date from contact messages
         getLastMessageDate(contacId) {
 
             const contactMessages = this.getObjectById(this.contacts, contacId).messages;

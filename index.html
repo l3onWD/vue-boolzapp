@@ -91,10 +91,13 @@
                         <div class="align-items-center">
                             <img class="contact-img me-2" :src="getAvatarUrl(contact.avatar)" :alt="contact.name">
     
-                            <p>{{ contact.name }}</p>
+                            <div>
+                                <p>{{ contact.name }}</p>
+                                <p class="text-gray-900 contact-text-preview">{{ getLastMessageText(contact.id) }}</p>
+                            </div>
                         </div>
 
-                        <p class="text-gray-900">{{ getLastMessageDate(contact.id) }}</p>
+                        <p class="text-gray-900 text-small">{{ getLastMessageDate(contact.id) }}</p>
 
                     </li>
 
