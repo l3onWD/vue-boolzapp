@@ -330,8 +330,9 @@ const app = Vue.createApp({
             // Change current contact ID
             this.currentContactId = contactId;
 
-            // Hide sidebar
-            this.layoutLeftElem.show = false;
+            // Reset render
+            this.layoutLeftElem.show = false; // Hide sidebar
+            this.searchedMessageTerm = ''; // Reset search message
         },
 
         //*** GET CONTACT MESSAGES ***//
@@ -382,6 +383,7 @@ const app = Vue.createApp({
         // Delete a message from the id
         deleteAllMessages() {
             this.currentContact.messages = [];
+            this.searchedMessageTerm = ''; // Reset search message
         },
 
         //*** SEND MESSAGE ***//
@@ -394,9 +396,10 @@ const app = Vue.createApp({
             // add message
             this.addMessage(this.newMessage, 'sent');
 
-            // Reset input
+            // Reset render
             this.newMessage = '';
             this.$refs.addMessageInput.focus();
+            this.searchedMessageTerm = ''; // Reset search message
 
             // Send CPU reply (cpu wait last message before reply)
             clearTimeout(this.replyTimer);
@@ -412,7 +415,7 @@ const app = Vue.createApp({
             const contactMessages = this.getContactMessages(contacId);
             
             // Get last message text
-            if(!contactMessages.length) return '';// No messages
+            if(!contactMessages.length) return ''; // No messages
             const lastMessageId = contactMessages.reduce((result, {id}) => id > result ? id: result, 0);
 
             return this.getObjectById(contactMessages, lastMessageId).message;
