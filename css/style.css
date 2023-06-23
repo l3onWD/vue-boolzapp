@@ -159,10 +159,10 @@ a:hover {
     position: relative;
 }
 
-.dropmenu-content {
+.dropmenu-list {
     position: absolute;
-    top: 100%;
-    right: 0;
+    top: 50%;
+    right: 10%;
     padding: 1rem 0;
 
     display: none;
@@ -173,18 +173,19 @@ a:hover {
     z-index: 1;
 }
 
-.dropmenu-content li {
+.dropmenu-list li {
     padding: 0.5rem 1.5rem;
 
     white-space: nowrap;
     cursor: pointer;
 }
 
-.dropmenu-content li:hover {
+.dropmenu-list li:hover {
     color: var(--col-green);
 }
 
-.dropmenu-toggle:focus ~ .dropmenu-content {
+.dropmenu:focus .dropmenu-list,
+.dropmenu:focus-within .dropmenu-list {
     display: block;
 }
 

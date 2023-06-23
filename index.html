@@ -137,10 +137,13 @@
                             <li>
                                 <button class="btn btn-gray-500"><i class="fas fa-paperclip"></i></button>
                             </li>
-                            <li class="dropmenu">
-                                <button class="btn btn-gray-500 dropmenu-toggle"><i class="fas fa-ellipsis-vertical"></i></button>
-                                <ul class="dropmenu-content">
-                                    <li>Svuota Chat</li>
+
+                            <!-- Dropmenu -->
+                            <li class="dropmenu" tabindex="1">
+                                <button class="btn btn-gray-500"><i class="fas fa-ellipsis-vertical"></i></button>
+                                
+                                <ul class="dropmenu-list">
+                                    <li role="button">Svuota Chat</li>
                                 </ul>
                             </li>
                         </ul>
@@ -154,9 +157,15 @@
                 <ul class="chat-messages px-5 py-3">
 
                     <!--* Messages *-->
-                    <li v-for="message in currentMessages" :key="message.id" :class="message.status" class="message my-2">
+                    <li v-for="message in currentMessages" :key="message.id" :class="message.status" class="message my-2 dropmenu" tabindex="1">
                         <p>{{ message.message }}</p>
                         <p class="text-end text-gray-500">{{ message.date }}</p>
+
+                        <!-- Dropmenu list -->
+                        <ul class="dropmenu-list">
+                            <li tabindex="1">Cancella messaggio</li>
+                        </ul>
+
                     </li>
 
                 </ul>
