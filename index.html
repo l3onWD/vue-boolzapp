@@ -130,9 +130,10 @@
   
                         </div>
 
+                        <!-- Contact controls -->
                         <ul class="contact-card-right">
 
-                            <!-- Search Messages -->
+                            <!-- Chat Search -->
                             <li class="dropmenu" tabindex="1">
 
                                 <button class="btn btn-gray-500"><i class="fas fa-magnifying-glass" :class="{'text-cyan': searchedMessageTerm}"></i></button>
@@ -145,12 +146,22 @@
 
                             </li>
                             
+                            <!-- Contact Actions -->
+                            <li class="dropmenu" tabindex="1">
+                                <button class="btn btn-gray-500"><i class="fas fa-address-book"></i></button>
+                                
+                                <ul class="dropmenu-content">
+                                    <!-- Delete chat -->
+                                    <li><button class="btn btn-link">Cancella Contatto</button></li>
+                                </ul>
+                            </li>
 
-                            <!-- Delete all messages -->
+                            <!-- Chat Actions -->
                             <li class="dropmenu" tabindex="1">
                                 <button class="btn btn-gray-500"><i class="fas fa-ellipsis-vertical"></i></button>
                                 
                                 <ul class="dropmenu-content">
+                                    <!-- Delete chat -->
                                     <li><button @click="deleteAllMessages" class="btn btn-link">Svuota chat</button></li>
                                 </ul>
                             </li>
