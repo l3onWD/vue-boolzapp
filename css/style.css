@@ -141,8 +141,8 @@ a:hover {
 }
 
 .btn.btn-link {
-    padding: 0;
-    
+    padding: 1rem;
+
     color: inherit;
     font-size: 1rem;
 
@@ -176,7 +176,6 @@ a:hover {
     position: absolute;
     top: 50%;
     right: 10%;
-    padding: 1rem 0;
 
     display: none;
     background-color: #fff;
@@ -187,8 +186,6 @@ a:hover {
 }
 
 .dropmenu-list li {
-    padding: 0.5rem 1.5rem;
-
     white-space: nowrap;
     cursor: pointer;
 }
