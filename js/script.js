@@ -332,7 +332,7 @@ const app = Vue.createApp({
         */
         //*** ADD MESSAGE ***//
         // Add a message to the current contact message list
-        addMessage(msg, status) {
+        addMessage(message, status) {
 
             // Get id
             const msgId = this.lastMessageId + 1;
@@ -351,13 +351,13 @@ const app = Vue.createApp({
             const msgDate = dateNow.toLocaleString([], dateFormatOptions).replace(',', '');
 
             // Add message
-            this.currentMessages.push({ id:msgId, date: msgDate, message: msg, status: status });
+            this.currentMessages.push({ id: msgId, date: msgDate, message, status });
 
         },
 
-        //*** SENT MESSAGE ***//
-        // Sent user message from the message input
-        sentMessage() {
+        //*** SEND MESSAGE ***//
+        // Send user message from the message input
+        sendMessage() {
 
             // Validation
             if(!this.newMessage.length) return;
@@ -369,21 +369,11 @@ const app = Vue.createApp({
             this.newMessage = '';
             this.$refs.addMessageInput.focus();
 
-            // Reset reply timer and set new one (cpu wait last message before reply)
+            // Send CPU reply (cpu wait last message before reply)
             clearTimeout(this.replyTimer);
-            this.replyTimer = setTimeout(this.sentCPUMessage, this.replyDelay);
-        },
-
-        //*** SENT CPU MESSAGE ***//
-        // Sent CPU reply message with predefined text
-        sentCPUMessage() {
-
-            // add message
-            this.addMessage('Ok', 'received');
-
-            // Reset input
-            this.newMessage = '';
-            this.$refs.addMessageInput.focus();
+            this.replyTimer = setTimeout(() => {
+                this.addMessage('Ok', 'received');
+            }, this.replyDelay);
         },
 
         //*** LAST MESSAGE TEXT ***//

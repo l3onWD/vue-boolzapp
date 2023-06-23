@@ -176,6 +176,7 @@ a:hover {
 .dropmenu-content li {
     padding: 0.5rem 1.5rem;
 
+    white-space: nowrap;
     cursor: pointer;
 }
 
