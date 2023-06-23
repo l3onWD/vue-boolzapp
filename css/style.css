@@ -287,7 +287,26 @@ input {
 }
 
 
+/*** WELCOME ***/
+.welcome {
+    height: 100%;
+    background-color: var(--col-gray-100);
+}
+
+.welcome a {
+    color: inherit;
+}
+
+.welcome img {
+    width: 300px;
+}
+
+
 /*** CHAT ***/
+.chat {
+    height: 100%;
+}
+
 .chat-header {
     height: var(--chat-header);
 }

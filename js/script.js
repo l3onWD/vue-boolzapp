@@ -23,7 +23,7 @@ const app = Vue.createApp({
             /* 
             * GLOBAL
             */
-            currentContactId: 1,
+            currentContactId: null,
             newMessage: '',
             replyTimer: null,
             replyDelay: 1000,

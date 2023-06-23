@@ -106,101 +106,120 @@
             </nav>
 
 
-            <!-- Chat -->
-            <div class="layout-right chat">
+            <!-- Layout Right -->
+            <div class="layout-right">
 
-
-                <!-- Chat header -->
-                <div class="chat-header d-flex bg-gray-100">
-
-                    <!-- Sidebar toggler -->
-                    <button @click="layoutLeftElem.show = !layoutLeftElem.show" class="btn btn-gray-500 d-md-none"><i class="fas fa-arrow-left"></i></button>
-
-                    <!-- Current contact info -->
-                    <div class="contact-card flex-grow-1 p-2">
+                <!-- Welcome -->
+                <div v-if="!currentContactId" class="welcome py-5">
+                    <div class="text-center">
+                        <h2>Benvenuto in Boolzapp</h2>
+                        <a href="#" @click="layoutLeftElem.show = !layoutLeftElem.show" >Scegli un contatto</a>
                         
-                        <div class="align-items-center">
-
-                            <img class="contact-img me-2" :src="getAvatarUrl(currentContact.avatar)" :alt="currentContact.name">
-
-                            <div>
-                                <p>{{currentContact.name}}</p>
-                                <p class="text-gray-900 text-small">Ultimo accesso oggi {{ lastAccess }}</p>
-                            </div>
-  
+                        <!-- Illustration -->
+                        <div class="d-flex justify-content-center align-items-center mt-5">
+                            <img src="img/welcome.svg" alt="Comments illustration">
                         </div>
 
-                        <!-- Contact controls -->
-                        <ul class="contact-card-right">
 
-                            <!-- Chat Search -->
-                            <li class="dropmenu" tabindex="1">
+                    </div>
+                </div>
 
-                                <button class="btn btn-gray-500"><i class="fas fa-magnifying-glass" :class="{'text-cyan': searchedMessageTerm}"></i></button>
+                <!-- Chat -->
+                <div v-else class="chat">
+                
+                    <!-- Chat header -->
+                    <div  class="chat-header d-flex bg-gray-100">
 
-                                <div class="dropmenu-content">
-                                    <div class="form-search p-2">
-                                        <input v-model.trim="searchedMessageTerm" class="form-control border-0 ps-5" type="text" placeholder="Cerca messaggi...">
-                                    </div>
-                                </div>
+                        <!-- Sidebar toggler -->
+                        <button @click="layoutLeftElem.show = !layoutLeftElem.show" class="btn btn-gray-500 d-md-none"><i class="fas fa-arrow-left"></i></button>
 
-                            </li>
+                        <!-- Current contact info -->
+                        <div class="contact-card flex-grow-1 p-2">
                             
-                            <!-- Contact Actions -->
-                            <li class="dropmenu" tabindex="1">
-                                <button class="btn btn-gray-500"><i class="fas fa-address-book"></i></button>
-                                
-                                <ul class="dropmenu-content">
-                                    <!-- Delete chat -->
-                                    <li><button class="btn btn-link">Cancella Contatto</button></li>
-                                </ul>
-                            </li>
+                            <div class="align-items-center">
 
-                            <!-- Chat Actions -->
-                            <li class="dropmenu" tabindex="1">
-                                <button class="btn btn-gray-500"><i class="fas fa-ellipsis-vertical"></i></button>
+                                <img class="contact-img me-2" :src="getAvatarUrl(currentContact.avatar)" :alt="currentContact.name">
+
+                                <div>
+                                    <p>{{currentContact.name}}</p>
+                                    <p class="text-gray-900 text-small">Ultimo accesso oggi {{ lastAccess }}</p>
+                                </div>
+    
+                            </div>
+
+                            <!-- Contact controls -->
+                            <ul class="contact-card-right">
+
+                                <!-- Chat Search -->
+                                <li class="dropmenu" tabindex="1">
+
+                                    <button class="btn btn-gray-500"><i class="fas fa-magnifying-glass" :class="{'text-cyan': searchedMessageTerm}"></i></button>
+
+                                    <div class="dropmenu-content">
+                                        <div class="form-search p-2">
+                                            <input v-model.trim="searchedMessageTerm" class="form-control border-0 ps-5" type="text" placeholder="Cerca messaggi...">
+                                        </div>
+                                    </div>
+
+                                </li>
                                 
-                                <ul class="dropmenu-content">
-                                    <!-- Delete chat -->
-                                    <li><button @click="deleteAllMessages" class="btn btn-link">Svuota chat</button></li>
-                                </ul>
-                            </li>
-                        </ul>
+                                <!-- Contact Actions -->
+                                <li class="dropmenu" tabindex="1">
+                                    <button class="btn btn-gray-500"><i class="fas fa-address-book"></i></button>
+                                    
+                                    <ul class="dropmenu-content">
+                                        <!-- Delete chat -->
+                                        <li><button class="btn btn-link">Cancella Contatto</button></li>
+                                    </ul>
+                                </li>
+
+                                <!-- Chat Actions -->
+                                <li class="dropmenu" tabindex="1">
+                                    <button class="btn btn-gray-500"><i class="fas fa-ellipsis-vertical"></i></button>
+                                    
+                                    <ul class="dropmenu-content">
+                                        <!-- Delete chat -->
+                                        <li><button @click="deleteAllMessages" class="btn btn-link">Svuota chat</button></li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                        </div>
 
                     </div>
 
-                </div>
+
+                    <!-- Chat messages -->
+                    <ul class="chat-messages px-5 py-3">
+
+                        <!--* Messages *-->
+                        <li v-for="message in filteredContactMessages" :key="message.id" :class="message.status" class="message my-2 dropmenu" tabindex="1">
+                            <p>{{ message.message }}</p>
+                            <p class="text-end text-gray-500">{{ message.date }}</p>
+
+                            <!-- Dropmenu list -->
+                            <ul class="dropmenu-content">
+                                <li><button @click="deleteMessage(message.id)" class="btn btn-link">Cancella messaggio</button></li>
+                            </ul>
+
+                        </li>
+
+                    </ul>
 
 
-                <!-- Chat messages -->
-                <ul class="chat-messages px-5 py-3">
+                    <!-- Chat footer -->
+                    <div class="chat-footer bg-gray-100 p-3">
 
-                    <!--* Messages *-->
-                    <li v-for="message in filteredContactMessages" :key="message.id" :class="message.status" class="message my-2 dropmenu" tabindex="1">
-                        <p>{{ message.message }}</p>
-                        <p class="text-end text-gray-500">{{ message.date }}</p>
+                        <!-- Add Icon -->
+                        <button class="btn btn-gray-900 me-3"><i class="far fa-face-smile"></i></button>
 
-                        <!-- Dropmenu list -->
-                        <ul class="dropmenu-content">
-                            <li><button @click="deleteMessage(message.id)" class="btn btn-link">Cancella messaggio</button></li>
-                        </ul>
+                        <!--* Message Text *-->
+                        <input v-model.trim="newMessage" @keyup.enter="sendMessage" ref="addMessageInput" class="form-control border-0 flex-grow-1 py-3" type="text" placeholder="Scrivi un messaggio">
 
-                    </li>
+                        <!-- Record Message -->
+                        <button class="btn btn-gray-900 ms-3"><i class="fas fa-microphone"></i></button>
 
-                </ul>
-
-
-                <!-- Chat footer -->
-                <div class="chat-footer bg-gray-100 p-3">
-
-                    <!-- Add Icon -->
-                    <button class="btn btn-gray-900 me-3"><i class="far fa-face-smile"></i></button>
-
-                    <!--* Message Text *-->
-                    <input v-model.trim="newMessage" @keyup.enter="sendMessage" ref="addMessageInput" class="form-control border-0 flex-grow-1 py-3" type="text" placeholder="Scrivi un messaggio">
-
-                    <!-- Record Message -->
-                    <button class="btn btn-gray-900 ms-3"><i class="fas fa-microphone"></i></button>
+                    </div>
 
                 </div>
 
