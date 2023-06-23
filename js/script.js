@@ -268,24 +268,24 @@ const app = Vue.createApp({
         //*** LAST ACCESS ***//
         // Get last access based on last received message date or an empty string if not found
         lastAccess() {
-            if (!this.lastReceivedMessageId) return '';
-            return this.currentMessages.find(({id}) => id === this.lastReceivedMessageId).date;
+            if (!this.currentLastReceivedMessageId) return '';
+            return this.currentMessages.find(({id}) => id === this.currentLastReceivedMessageId).date;
         },
 
 
         /* 
         * MESSAGE
         */
-        //*** LAST MESSAGE ID ***//
+        //*** CURRENT LAST MESSAGE ID ***//
         // Get last message id of the current contact or 0 if isn't found
-        lastMessageId() {
+        currentLastMessageId() {
             return this.currentMessages.reduce((result, {id}) => id > result ? id: result, 0);
         },
 
 
-        //*** LAST RECEIVED MESSAGE ID ***//
+        //*** CURRENT LAST RECEIVED MESSAGE ID ***//
         // Get last message id of the current contact or 0 if isn't found
-        lastReceivedMessageId() {
+        currentLastReceivedMessageId() {
             return this.currentMessages.reduce((result, {id, status}) => status === 'received' && id > result ? id: result, 0);
         }
 
@@ -345,7 +345,7 @@ const app = Vue.createApp({
         addMessage(message, status) {
 
             // Get id
-            const msgId = this.lastMessageId + 1;
+            const msgId = this.currentLastMessageId + 1;
 
             // Create date string
             const dateNow = new Date();
