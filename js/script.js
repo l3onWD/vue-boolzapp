@@ -327,6 +327,15 @@ const app = Vue.createApp({
             this.layoutLeftElem.show = false;
         },
 
+        //*** GET CONTACT MESSAGES ***//
+        // Get contact messages by contact id or undefined if contact or messages dont exist
+        getContactMessages(contactId) {
+            const contact = this.getObjectById(this.contacts, contactId);
+
+            if(!contact) return undefined;
+            return contact.messages;
+        },
+
 
         /* 
         * MESSAGE
@@ -383,17 +392,12 @@ const app = Vue.createApp({
             }, this.replyDelay);
         },
 
-        //*** LAST MESSAGE TEXT ***//
+        //*** GET LAST MESSAGE TEXT ***//
         // Get last message text from contact messages
         getLastMessageText(contacId) {
 
-            // Get contact messages by id
-            const contact = this.getObjectById(this.contacts, contacId);
-
-            if(!contact) return '';// No contact found
-            const contactMessages = contact.messages;
+            const contactMessages = this.getContactMessages(contacId);
             
-
             // Get last message text
             if(!contactMessages.length) return '';// No messages
             const lastMessageId = contactMessages.reduce((result, {id}) => id > result ? id: result, 0);
@@ -401,16 +405,11 @@ const app = Vue.createApp({
             return this.getObjectById(contactMessages, lastMessageId).message;
         },
 
-        //*** LAST MESSAGE DATE ***//
+        //*** GET LAST MESSAGE DATE ***//
         // Get last message date from contact messages
         getLastMessageDate(contacId) {
 
-            // Get contact messages by id
-            const contact = this.getObjectById(this.contacts, contacId);
-
-            if(!contact) return '';// No contact found
-            const contactMessages = contact.messages;
-            
+            const contactMessages = this.getContactMessages(contacId);
             
             // Get last message text
             if(!contactMessages.length) return '';// No messages
