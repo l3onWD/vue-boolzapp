@@ -52,6 +52,10 @@ a:hover {
     color: var(--col-green);
 }
 
+input {
+    min-width: 200px;
+}
+
 
 /* -----------------------------------------
 * LAYOUT
@@ -172,7 +176,7 @@ a:hover {
     position: relative;
 }
 
-.dropmenu-list {
+.dropmenu-content {
     position: absolute;
     top: 50%;
     right: 10%;
@@ -185,17 +189,17 @@ a:hover {
     z-index: 1;
 }
 
-.dropmenu-list li {
+.dropmenu-content li {
     white-space: nowrap;
     cursor: pointer;
 }
 
-.dropmenu-list li:hover {
+.dropmenu-content li:hover {
     color: var(--col-green);
 }
 
-.dropmenu:focus .dropmenu-list,
-.dropmenu:focus-within .dropmenu-list {
+.dropmenu:focus .dropmenu-content,
+.dropmenu:focus-within .dropmenu-content {
     display: block;
 }
 

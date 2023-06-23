@@ -27,7 +27,8 @@ const app = Vue.createApp({
             newMessage: '',
             replyTimer: null,
             replyDelay: 1000,
-            searchedWord: '',
+            searchedContactTerm: '',
+            searchedMessageTerm: '',
 
 
             /* 
@@ -248,9 +249,9 @@ const app = Vue.createApp({
         * CONTACT
         */
         //*** FILTERED CONTACTS ***//
-        // Get a reference of the current contact from current contact id
+        // Get filtered contacts by name
         filteredContacts() {
-            return this.contacts.filter(({name}) => name.toLowerCase().includes(this.searchedWord.toLowerCase()));
+            return this.contacts.filter(({name}) => name.toLowerCase().includes(this.searchedContactTerm.toLowerCase()));
         },
 
         //*** CURRENT CONTACT ***//
@@ -263,6 +264,12 @@ const app = Vue.createApp({
         // Get a current message from current contact
         currentMessages() {
             return this.currentContact.messages;
+        },
+
+        //*** FILTERED CONTACT MESSAGES ***//
+        // Get filtered contact messages by message text
+        filteredContactMessages() {
+            return this.currentMessages.filter(({message}) => message.toLowerCase().includes(this.searchedMessageTerm.toLowerCase()));
         },
 
         //*** LAST ACCESS ***//

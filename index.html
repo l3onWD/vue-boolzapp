@@ -76,7 +76,7 @@
                     
                     <!--* Contacts search *-->
                     <div class="form-search p-2">
-                        <input v-model.trim="searchedWord" class="form-control border-0 ps-5" type="text" placeholder="Cerca o inizia una nuova chat">
+                        <input v-model.trim="searchedContactTerm" class="form-control border-0 ps-5" type="text" placeholder="Cerca o inizia una nuova chat">
                     </div>
                     
 
@@ -131,18 +131,26 @@
                         </div>
 
                         <ul class="contact-card-right">
-                            <li>
-                                <button class="btn btn-gray-500"><i class="fas fa-magnifying-glass"></i></button>
-                            </li>
-                            <li>
-                                <button class="btn btn-gray-500"><i class="fas fa-paperclip"></i></button>
-                            </li>
 
-                            <!-- Dropmenu -->
+                            <!-- Search Messages -->
+                            <li class="dropmenu" tabindex="1">
+
+                                <button class="btn btn-gray-500"><i class="fas fa-magnifying-glass" :class="{'text-cyan': searchedMessageTerm}"></i></button>
+
+                                <div class="dropmenu-content">
+                                    <div class="form-search p-2">
+                                        <input v-model.trim="searchedMessageTerm" class="form-control border-0 ps-5" type="text" placeholder="Cerca messaggi...">
+                                    </div>
+                                </div>
+
+                            </li>
+                            
+
+                            <!-- Delete all messages -->
                             <li class="dropmenu" tabindex="1">
                                 <button class="btn btn-gray-500"><i class="fas fa-ellipsis-vertical"></i></button>
                                 
-                                <ul class="dropmenu-list">
+                                <ul class="dropmenu-content">
                                     <li><button @click="deleteAllMessages" class="btn btn-link">Svuota chat</button></li>
                                 </ul>
                             </li>
@@ -157,12 +165,12 @@
                 <ul class="chat-messages px-5 py-3">
 
                     <!--* Messages *-->
-                    <li v-for="message in currentMessages" :key="message.id" :class="message.status" class="message my-2 dropmenu" tabindex="1">
+                    <li v-for="message in filteredContactMessages" :key="message.id" :class="message.status" class="message my-2 dropmenu" tabindex="1">
                         <p>{{ message.message }}</p>
                         <p class="text-end text-gray-500">{{ message.date }}</p>
 
                         <!-- Dropmenu list -->
-                        <ul class="dropmenu-list">
+                        <ul class="dropmenu-content">
                             <li><button @click="deleteMessage(message.id)" class="btn btn-link">Cancella messaggio</button></li>
                         </ul>
 
