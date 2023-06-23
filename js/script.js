@@ -371,12 +371,18 @@ const app = Vue.createApp({
             this.currentContact.messages = this.currentContact.messages.filter(({id}) => id !== messageId);
         },
 
+        //*** DELETE ALL MESSAGES ***//
+        // Delete a message from the id
+        deleteAllMessages() {
+            this.currentContact.messages = [];
+        },
+
         //*** SEND MESSAGE ***//
         // Send user message from the message input
         sendMessage() {
 
             // Validation
-            if(!this.newMessage.length) return;
+            if(!this.newMessage) return;
 
             // add message
             this.addMessage(this.newMessage, 'sent');
