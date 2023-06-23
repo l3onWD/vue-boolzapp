@@ -324,7 +324,7 @@ const app = Vue.createApp({
         },
 
         //*** SET CURRENT CONTACT ***//
-        // Get avatar image url
+        // Set current contact from id
         setCurrrentContact(contactId) {
             
             // Change current contact ID
@@ -333,6 +333,13 @@ const app = Vue.createApp({
             // Reset render
             this.layoutLeftElem.show = false; // Hide sidebar
             this.searchedMessageTerm = ''; // Reset search message
+        },
+
+        //*** DELETE CURRENT CONTACT ***//
+        // Delete current contact
+        deleteCurrentContact() {
+            this.contacts = this.contacts.filter(({id}) => id !== this.currentContactId);
+            this.currentContactId = null;
         },
 
         //*** GET CONTACT MESSAGES ***//

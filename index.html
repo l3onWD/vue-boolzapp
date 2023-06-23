@@ -124,6 +124,7 @@
                     </div>
                 </div>
 
+                
                 <!-- Chat -->
                 <div v-else class="chat">
                 
@@ -133,7 +134,7 @@
                         <!-- Sidebar toggler -->
                         <button @click="layoutLeftElem.show = !layoutLeftElem.show" class="btn btn-gray-500 d-md-none"><i class="fas fa-arrow-left"></i></button>
 
-                        <!-- Current contact info -->
+                        <!-- Chat info -->
                         <div class="contact-card flex-grow-1 p-2">
                             
                             <div class="align-items-center">
@@ -147,7 +148,7 @@
     
                             </div>
 
-                            <!-- Contact controls -->
+                            <!-- Chat controls -->
                             <ul class="contact-card-right">
 
                                 <!-- Chat Search -->
@@ -169,7 +170,7 @@
                                     
                                     <ul class="dropmenu-content">
                                         <!-- Delete chat -->
-                                        <li><button class="btn btn-link">Cancella Contatto</button></li>
+                                        <li><button @click="deleteCurrentContact" class="btn btn-link">Cancella Contatto</button></li>
                                     </ul>
                                 </li>
 
