@@ -266,8 +266,9 @@ const app = Vue.createApp({
         },
 
         //*** LAST ACCESS ***//
-        // Get last access based on last received message date
+        // Get last access based on last received message date or an empty string if not found
         lastAccess() {
+            if (!this.lastReceivedMessageId) return '';
             return this.currentMessages.find(({id}) => id === this.lastReceivedMessageId).date;
         },
 
@@ -276,14 +277,14 @@ const app = Vue.createApp({
         * MESSAGE
         */
         //*** LAST MESSAGE ID ***//
-        // Get last message id of the current contact
+        // Get last message id of the current contact or 0 if isn't found
         lastMessageId() {
             return this.currentMessages.reduce((result, {id}) => id > result ? id: result, 0);
         },
 
 
         //*** LAST RECEIVED MESSAGE ID ***//
-        // Get last message id of the current contact
+        // Get last message id of the current contact or 0 if isn't found
         lastReceivedMessageId() {
             return this.currentMessages.reduce((result, {id, status}) => status === 'received' && id > result ? id: result, 0);
         }
@@ -300,7 +301,7 @@ const app = Vue.createApp({
         * UTILS
         */
         //*** GET OBJECT BY ID ***//
-        // Get an object from an array of objects based on id argument
+        // Get an object from an array of objects based on id argument or undefined if not found
         getObjectById(arr, itemId) {
             return arr.find(({id}) => id === itemId);
         },
@@ -355,6 +356,12 @@ const app = Vue.createApp({
 
         },
 
+        //*** DELETE MESSAGE ***//
+        // Delete a message from the id
+        deleteMessage(messageId) {
+            this.currentContact.messages = this.currentContact.messages.filter(({id}) => id !== messageId);
+        },
+
         //*** SEND MESSAGE ***//
         // Send user message from the message input
         sendMessage() {
@@ -380,8 +387,15 @@ const app = Vue.createApp({
         // Get last message text from contact messages
         getLastMessageText(contacId) {
 
-            const contactMessages = this.getObjectById(this.contacts, contacId).messages;
+            // Get contact messages by id
+            const contact = this.getObjectById(this.contacts, contacId);
+
+            if(!contact) return '';// No contact found
+            const contactMessages = contact.messages;
             
+
+            // Get last message text
+            if(!contactMessages.length) return '';// No messages
             const lastMessageId = contactMessages.reduce((result, {id}) => id > result ? id: result, 0);
 
             return this.getObjectById(contactMessages, lastMessageId).message;
@@ -391,8 +405,15 @@ const app = Vue.createApp({
         // Get last message date from contact messages
         getLastMessageDate(contacId) {
 
-            const contactMessages = this.getObjectById(this.contacts, contacId).messages;
+            // Get contact messages by id
+            const contact = this.getObjectById(this.contacts, contacId);
+
+            if(!contact) return '';// No contact found
+            const contactMessages = contact.messages;
             
+            
+            // Get last message text
+            if(!contactMessages.length) return '';// No messages
             const lastMessageId = contactMessages.reduce((result, {id}) => id > result ? id: result, 0);
 
             return this.getObjectById(contactMessages, lastMessageId).date;
