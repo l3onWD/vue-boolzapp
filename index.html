@@ -124,7 +124,7 @@
                     </div>
                 </div>
 
-                
+
                 <!-- Chat -->
                 <div v-else class="chat">
                 
@@ -217,8 +217,11 @@
                         <!--* Message Text *-->
                         <input v-model.trim="newMessage" @keyup.enter="sendMessage" ref="addMessageInput" class="form-control border-0 flex-grow-1 py-3" type="text" placeholder="Scrivi un messaggio">
 
+                        <!-- Send Message -->
+                        <button v-if="newMessage" @click="sendMessage" class="btn btn-gray-900 ms-3"><i class="fas fa-paper-plane"></i></button>
+                        
                         <!-- Record Message -->
-                        <button class="btn btn-gray-900 ms-3"><i class="fas fa-microphone"></i></button>
+                        <button v-else class="btn btn-gray-900 ms-3"><i class="fas fa-microphone"></i></button>
 
                     </div>
 
