@@ -75,12 +75,17 @@ input {
     left: 0;
     width: 100%;
 
+    visibility: hidden;
+    opacity: 0;
     transition: top 0.2s;
     z-index: 1;
 }
 
 .layout-left.show {
     top: 0;
+
+    visibility: visible;
+    opacity: 1;
 }
 
 .layout-right {
@@ -380,7 +385,8 @@ input {
 }
 
 /* hover icon */
-.message:hover::after {
+.message:hover::after,
+.message:focus::after {
     position: absolute;
     top: 6px;
     right: 6px;
@@ -406,5 +412,8 @@ input {
     .layout-left {
         flex: 0 0 var(--ly-left);
         position: static;
+
+        visibility: visible;
+        opacity: 1;
     }
 }
