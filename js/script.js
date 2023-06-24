@@ -29,6 +29,7 @@ const app = Vue.createApp({
             replyDelay: 1000,
             searchedContactTerm: '',
             searchedMessageTerm: '',
+            currentContactIsWriting: false,
 
 
             /* 
@@ -409,9 +410,14 @@ const app = Vue.createApp({
             this.searchedMessageTerm = ''; // Reset search message
 
             // Send CPU reply (cpu wait last message before reply)
+            this.currentContactIsWriting = true;
+
             clearTimeout(this.replyTimer);
             this.replyTimer = setTimeout(() => {
+
                 this.addMessage('Ok', 'received');
+                this.currentContactIsWriting = false;
+
             }, this.replyDelay);
         },
 
@@ -419,9 +425,13 @@ const app = Vue.createApp({
         // Get last message text from contact messages
         getLastMessageText(contacId) {
 
-            const contactMessages = this.getContactMessages(contacId);
+            // Check if current contact is writing
+            if (contacId === this.currentContactId && this.currentContactIsWriting) return 'Sta Scrivendo...';
+
             
             // Get last message text
+            const contactMessages = this.getContactMessages(contacId);
+            
             if(!contactMessages.length) return ''; // No messages
             const lastMessageId = contactMessages.reduce((result, {id}) => id > result ? id: result, 0);
 
@@ -432,9 +442,9 @@ const app = Vue.createApp({
         // Get last message date from contact messages
         getLastMessageDate(contacId) {
 
+            // Get last message text
             const contactMessages = this.getContactMessages(contacId);
             
-            // Get last message text
             if(!contactMessages.length) return '';// No messages
             const lastMessageId = contactMessages.reduce((result, {id}) => id > result ? id: result, 0);
 
