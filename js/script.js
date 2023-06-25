@@ -31,6 +31,91 @@ const app = Vue.createApp({
             searchedMessageTerm: '',
             currentContactIsWriting: false,
 
+            emojis: [
+                '😀',
+                '😁',
+                '😂',
+                '😃',
+                '😄',
+                '😅',
+                '😆',
+                '😇',
+                '😈',
+                '😉',
+                '😊',
+                '😋',
+                '😌',
+                '😍',
+                '😎',
+                '😏',
+                '😐',
+                '😑',
+                '😒',
+                '😓',
+                '😔',
+                '😕',
+                '😖',
+                '😗',
+                '😘',
+                '😙',
+                '😚',
+                '😛',
+                '😜',
+                '😝',
+                '😞',
+                '😟',
+                '😠',
+                '😡',
+                '😢',
+                '😣',
+                '😤',
+                '😥',
+                '😦',
+                '😧',
+                '😨',
+                '😩',
+                '😪',
+                '😫',
+                '😬',
+                '😭',
+                '😮',
+                '😯',
+                '😰',
+                '😱',
+                '😲',
+                '😳',
+                '😴',
+                '😵',
+                '😶',
+                '😷',
+                '🙁',
+                '🙂',
+                '🙃',
+                '🙄',
+                '🤐',
+                '🤑',
+                '🤒',
+                '🤓',
+                '🤔',
+                '🤕',
+                '🤠',
+                '🤡',
+                '🤢',
+                '🤣',
+                '🤤',
+                '🤥',
+                '🤧',
+                '🤨',
+                '🤩',
+                '🤪',
+                '🤫',
+                '🤬',
+                '🤭',
+                '🤮',
+                '🤯',
+                '🧐',
+            ],
+
 
             /* 
             * USER
@@ -415,7 +500,7 @@ const app = Vue.createApp({
             clearTimeout(this.replyTimer);
             this.replyTimer = setTimeout(() => {
 
-                this.addMessage('Ok', 'received');
+                this.addMessage('😛', 'received');
                 this.currentContactIsWriting = false;
 
             }, this.replyDelay);
@@ -449,6 +534,13 @@ const app = Vue.createApp({
             const lastMessageId = contactMessages.reduce((result, {id}) => id > result ? id: result, 0);
 
             return this.getObjectById(contactMessages, lastMessageId).date;
+        },
+
+
+
+        addEmoji(entityDecimal) {
+            this.newMessage += entityDecimal;
+            this.$refs.addMessageInput.focus();
         }
     }
 });

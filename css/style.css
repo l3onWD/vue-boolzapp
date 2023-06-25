@@ -183,8 +183,7 @@ input {
 
 .dropmenu-content {
     position: absolute;
-    top: 50%;
-    right: 10%;
+    inset: 50% 10% auto auto;
 
     display: block;
     background-color: #fff;
@@ -210,6 +209,11 @@ input {
 .dropmenu:focus-within .dropmenu-content {
     visibility: visible;
     transform: scale(1);
+}
+
+.dropmenu-top .dropmenu-content {
+    inset: auto auto 100% 0;
+
 }
 
 
@@ -404,6 +408,16 @@ input {
     content: "\f107";
 }
 
+
+/*** EMOJI PICKER ***/
+.emoji-picker {
+    width: 250px;
+    max-height: 150px;
+
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+}
 
 
 /* -----------------------------------------

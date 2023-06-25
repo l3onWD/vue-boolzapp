@@ -211,8 +211,18 @@
                     <!-- Chat footer -->
                     <div class="chat-footer bg-gray-100 p-3">
 
-                        <!-- Add Icon -->
-                        <button class="btn btn-gray-900 me-3"><i class="far fa-face-smile"></i></button>
+                        <!-- Emoji Picker -->
+                        <div class="dropmenu dropmenu-top">
+                            <button class="btn btn-gray-900 me-3"><i class="far fa-face-smile"></i></button>
+
+                            <div class="dropmenu-content">
+                                <ul class="emoji-picker">
+                                    <li v-for="emoji in emojis">
+                                        <button @click="addEmoji(emoji)" class="btn">{{ emoji }}</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
 
                         <!--* Message Text *-->
                         <input v-model.trim="newMessage" @keyup.enter="sendMessage" ref="addMessageInput" class="form-control border-0 flex-grow-1 py-3" type="text" placeholder="Scrivi un messaggio">
