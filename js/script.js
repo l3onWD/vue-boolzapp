@@ -500,7 +500,11 @@ const app = Vue.createApp({
             clearTimeout(this.replyTimer);
             this.replyTimer = setTimeout(() => {
 
-                this.addMessage('😛', 'received');
+                // Get a random emoji
+                const randomMood = Math.floor(Math.random() * this.emojis.length);
+
+                // Reply to user message
+                this.addMessage(this.emojis[randomMood], 'received');
                 this.currentContactIsWriting = false;
 
             }, this.replyDelay);
@@ -536,8 +540,8 @@ const app = Vue.createApp({
             return this.getObjectById(contactMessages, lastMessageId).date;
         },
 
-
-
+        //*** ADD EMOJI ***//
+        // Add emoji gliph to the text input
         addEmoji(entityDecimal) {
             this.newMessage += entityDecimal;
             this.$refs.addMessageInput.focus();
