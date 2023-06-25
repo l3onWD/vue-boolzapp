@@ -216,11 +216,26 @@
                             <button class="btn btn-gray-900 me-3"><i class="far fa-face-smile"></i></button>
 
                             <div class="dropmenu-content">
+
+                                <!-- Emoji Tag Filter -->
+                                <nav>
+                                    <ul class="emoji-nav">
+                                        <li :class="{active : emojiActiveTag === 'face'}">
+                                            <button class="btn btn-link" @click="setEmojiActiveTag('face')"><i class="far fa-face-smile"></i></button>
+                                        </li>
+                                        <li :class="{active : emojiActiveTag === 'nature'}">
+                                            <button class="btn btn-link" @click="setEmojiActiveTag('nature')"><i class="fas fa-paw"></i></button>
+                                        </li>
+                                    </ul>
+                                </nav>
+
+                                <!-- Emoji List -->
                                 <ul class="emoji-picker">
-                                    <li v-for="emoji in emojis">
-                                        <button @click="addEmoji(emoji)" class="btn">{{ emoji }}</button>
+                                    <li v-for="emoji in filteredEmojis" :key="emoji.char">
+                                        <button @click="addEmoji(emoji.char)" class="btn">{{ emoji.char }}</button>
                                     </li>
                                 </ul>
+
                             </div>
                         </div>
 

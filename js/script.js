@@ -31,90 +31,140 @@ const app = Vue.createApp({
             searchedMessageTerm: '',
             currentContactIsWriting: false,
 
+
+            /* 
+            * EMOJI
+            */
             emojis: [
-                '😀',
-                '😁',
-                '😂',
-                '😃',
-                '😄',
-                '😅',
-                '😆',
-                '😇',
-                '😈',
-                '😉',
-                '😊',
-                '😋',
-                '😌',
-                '😍',
-                '😎',
-                '😏',
-                '😐',
-                '😑',
-                '😒',
-                '😓',
-                '😔',
-                '😕',
-                '😖',
-                '😗',
-                '😘',
-                '😙',
-                '😚',
-                '😛',
-                '😜',
-                '😝',
-                '😞',
-                '😟',
-                '😠',
-                '😡',
-                '😢',
-                '😣',
-                '😤',
-                '😥',
-                '😦',
-                '😧',
-                '😨',
-                '😩',
-                '😪',
-                '😫',
-                '😬',
-                '😭',
-                '😮',
-                '😯',
-                '😰',
-                '😱',
-                '😲',
-                '😳',
-                '😴',
-                '😵',
-                '😶',
-                '😷',
-                '🙁',
-                '🙂',
-                '🙃',
-                '🙄',
-                '🤐',
-                '🤑',
-                '🤒',
-                '🤓',
-                '🤔',
-                '🤕',
-                '🤠',
-                '🤡',
-                '🤢',
-                '🤣',
-                '🤤',
-                '🤥',
-                '🤧',
-                '🤨',
-                '🤩',
-                '🤪',
-                '🤫',
-                '🤬',
-                '🤭',
-                '🤮',
-                '🤯',
-                '🧐',
+                { char: '😀', tag: 'face' },
+                { char: '😁', tag: 'face' },
+                { char: '😂', tag: 'face' },
+                { char: '😃', tag: 'face' },
+                { char: '😄', tag: 'face' },
+                { char: '😅', tag: 'face' },
+                { char: '😆', tag: 'face' },
+                { char: '😇', tag: 'face' },
+                { char: '😈', tag: 'face' },
+                { char: '😉', tag: 'face' },
+                { char: '😊', tag: 'face' },
+                { char: '😋', tag: 'face' },
+                { char: '😌', tag: 'face' },
+                { char: '😍', tag: 'face' },
+                { char: '😎', tag: 'face' },
+                { char: '😏', tag: 'face' },
+                { char: '😐', tag: 'face' },
+                { char: '😑', tag: 'face' },
+                { char: '😒', tag: 'face' },
+                { char: '😓', tag: 'face' },
+                { char: '😔', tag: 'face' },
+                { char: '😕', tag: 'face' },
+                { char: '😖', tag: 'face' },
+                { char: '😗', tag: 'face' },
+                { char: '😘', tag: 'face' },
+                { char: '😙', tag: 'face' },
+                { char: '😚', tag: 'face' },
+                { char: '😛', tag: 'face' },
+                { char: '😜', tag: 'face' },
+                { char: '😝', tag: 'face' },
+                { char: '😞', tag: 'face' },
+                { char: '😟', tag: 'face' },
+                { char: '😠', tag: 'face' },
+                { char: '😡', tag: 'face' },
+                { char: '😢', tag: 'face' },
+                { char: '😣', tag: 'face' },
+                { char: '😤', tag: 'face' },
+                { char: '😥', tag: 'face' },
+                { char: '😦', tag: 'face' },
+                { char: '😧', tag: 'face' },
+                { char: '😨', tag: 'face' },
+                { char: '😩', tag: 'face' },
+                { char: '😪', tag: 'face' },
+                { char: '😫', tag: 'face' },
+                { char: '😬', tag: 'face' },
+                { char: '😭', tag: 'face' },
+                { char: '😮', tag: 'face' },
+                { char: '😯', tag: 'face' },
+                { char: '😰', tag: 'face' },
+                { char: '😱', tag: 'face' },
+                { char: '😲', tag: 'face' },
+                { char: '😳', tag: 'face' },
+                { char: '😴', tag: 'face' },
+                { char: '😵', tag: 'face' },
+                { char: '😶', tag: 'face' },
+                { char: '😷', tag: 'face' },
+                { char: '🙁', tag: 'face' },
+                { char: '🙂', tag: 'face' },
+                { char: '🙃', tag: 'face' },
+                { char: '🙄', tag: 'face' },
+                { char: '🤐', tag: 'face' },
+                { char: '🤑', tag: 'face' },
+                { char: '🤒', tag: 'face' },
+                { char: '🤓', tag: 'face' },
+                { char: '🤔', tag: 'face' },
+                { char: '🤕', tag: 'face' },
+                { char: '🤠', tag: 'face' },
+                { char: '🤡', tag: 'face' },
+                { char: '🤢', tag: 'face' },
+                { char: '🤣', tag: 'face' },
+                { char: '🤤', tag: 'face' },
+                { char: '🤥', tag: 'face' },
+                { char: '🤧', tag: 'face' },
+                { char: '🤨', tag: 'face' },
+                { char: '🤩', tag: 'face' },
+                { char: '🤪', tag: 'face' },
+                { char: '🤫', tag: 'face' },
+                { char: '🤬', tag: 'face' },
+                { char: '🤭', tag: 'face' },
+                { char: '🤮', tag: 'face' },
+                { char: '🤯', tag: 'face' },
+                { char: '🧐', tag: 'face' },
+                { char: '🐵', tag: 'nature' },
+                { char: '🐒', tag: 'nature' },
+                { char: '🦍', tag: 'nature' },
+                { char: '🐶', tag: 'nature' },
+                { char: '🐕', tag: 'nature' },
+                { char: '🐩', tag: 'nature' },
+                { char: '🐺', tag: 'nature' },
+                { char: '🦊', tag: 'nature' },
+                { char: '🐱', tag: 'nature' },
+                { char: '🐈', tag: 'nature' },
+                { char: '🦁', tag: 'nature' },
+                { char: '🐯', tag: 'nature' },
+                { char: '🐅', tag: 'nature' },
+                { char: '🐆', tag: 'nature' },
+                { char: '🐴', tag: 'nature' },
+                { char: '🐎', tag: 'nature' },
+                { char: '🦌', tag: 'nature' },
+                { char: '🦄', tag: 'nature' },
+                { char: '🐮', tag: 'nature' },
+                { char: '🐂', tag: 'nature' },
+                { char: '🐃', tag: 'nature' },
+                { char: '🐄', tag: 'nature' },
+                { char: '🐷', tag: 'nature' },
+                { char: '🐖', tag: 'nature' },
+                { char: '🐗', tag: 'nature' },
+                { char: '🐽', tag: 'nature' },
+                { char: '🐏', tag: 'nature' },
+                { char: '🐑', tag: 'nature' },
+                { char: '🐐', tag: 'nature' },
+                { char: '🐪', tag: 'nature' },
+                { char: '🐫', tag: 'nature' },
+                { char: '🐘', tag: 'nature' },
+                { char: '🦏', tag: 'nature' },
+                { char: '🐭', tag: 'nature' },
+                { char: '🐁', tag: 'nature' },
+                { char: '🐀', tag: 'nature' },
+                { char: '🐹', tag: 'nature' },
+                { char: '🐰', tag: 'nature' },
+                { char: '🐇', tag: 'nature' },
+                { char: '🐿', tag: 'nature' },
+                { char: '🦇', tag: 'nature' },
+                { char: '🐻', tag: 'nature' },
+                { char: '🐨', tag: 'nature' },
+                { char: '🐼', tag: 'nature' },
+                { char: '🐾', tag: 'nature' },
             ],
+            emojiActiveTag: 'face',
 
 
             /* 
@@ -380,6 +430,16 @@ const app = Vue.createApp({
         // Get last message id of the current contact or 0 if isn't found
         currentLastReceivedMessageId() {
             return this.currentMessages.reduce((result, {id, status}) => status === 'received' && id > result ? id: result, 0);
+        },
+
+
+        /* 
+        * EMOJI
+        */
+        //*** FILTERED EMOJI ***//
+        // Get emoji list filtered by active tag
+        filteredEmojis() {
+            return this.emojis.filter(({tag}) => tag === this.emojiActiveTag);
         }
 
     },
@@ -504,7 +564,7 @@ const app = Vue.createApp({
                 const randomMood = Math.floor(Math.random() * this.emojis.length);
 
                 // Reply to user message
-                this.addMessage(this.emojis[randomMood], 'received');
+                this.addMessage(this.emojis[randomMood].char, 'received');
                 this.currentContactIsWriting = false;
 
             }, this.replyDelay);
@@ -540,11 +600,21 @@ const app = Vue.createApp({
             return this.getObjectById(contactMessages, lastMessageId).date;
         },
 
+
+        /* 
+        * EMOJI
+        */
         //*** ADD EMOJI ***//
-        // Add emoji gliph to the text input
+        // Add emoji char to the text input
         addEmoji(entityDecimal) {
             this.newMessage += entityDecimal;
             this.$refs.addMessageInput.focus();
+        },
+
+        //*** SET EMOJI CATEGORY ***//
+        // Set Emoji active tag by tag name
+        setEmojiActiveTag(emojiTag) {
+            this.emojiActiveTag = emojiTag;
         }
     }
 });

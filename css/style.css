@@ -409,7 +409,20 @@ input {
 }
 
 
-/*** EMOJI PICKER ***/
+/*** EMOJI ***/
+.emoji-nav {
+    display: flex;
+    border: 1px solid var(--col-gray-100);
+}
+
+.emoji-nav li {
+    border-bottom: 2px solid transparent;
+}
+
+.emoji-nav li.active {
+    border-color: var(--col-green);
+}
+
 .emoji-picker {
     width: 250px;
     max-height: 150px;
@@ -417,7 +430,7 @@ input {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    
+
     overflow: auto;
 }
 
