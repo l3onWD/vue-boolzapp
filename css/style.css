@@ -367,11 +367,11 @@ input {
 /* message tick */
 .message::before {
     position: absolute;
-    bottom: 0;
+    top: 0;
 
     border-left: 12px solid transparent;
     border-right: 12px solid transparent;
-    border-bottom: 8px solid transparent;
+    border-top: 8px solid transparent;
 
     content: '';
 }
@@ -379,13 +379,13 @@ input {
 .message.sent::before {
     right: -12px;
 
-    border-bottom-color: var(--col-lightgreen);
+    border-top-color: var(--col-lightgreen);
 }
 
 .message.received::before {
     left: -12px;
 
-    border-bottom-color: #fff;
+    border-top-color: #fff;
 }
 
 /* hover icon */
