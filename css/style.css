@@ -213,7 +213,10 @@ input {
 
 .dropmenu-top .dropmenu-content {
     inset: auto auto 100% 0;
+}
 
+.dropmenu-bottom .dropmenu-content {
+    inset: 100% 0 auto auto;
 }
 
 
